@@ -6,7 +6,7 @@
 /*   By: hectfern <hectfern@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 18:16:22 by hectfern          #+#    #+#             */
-/*   Updated: 2022/10/13 16:18:24 by hectfern         ###   ########.fr       */
+/*   Updated: 2022/10/14 09:20:01 by hectfern         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ void	dinner_one(t_philo *ph)
 	pthread_mutex_lock(ph->l_fork);
 	print(ph, "has taken a fork");
 	pthread_mutex_unlock(ph->l_fork);
+	while (!has_dead(ph->table))
+		usleep(542);
 }
 
 void	*dinner(void *arg)
